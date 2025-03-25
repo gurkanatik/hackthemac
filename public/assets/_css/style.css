@@ -27,7 +27,7 @@ h5 {
     font-size: 14px;
 }
 
-.fs-18{
+.fs-18 {
     font-size: 18px;
 }
 
@@ -35,8 +35,24 @@ h5 {
     color: #dedede;
 }
 
+.btn{
+    border-radius: 0;
+}
+
 .bg-success-2 {
     background-color: #0c5031;
+}
+
+.custom-card {
+    background-color: #232323;
+    padding: 2rem;
+}
+
+.form-control,
+.form-control:focus{
+    background: #3d3d3d;
+    border-color: #575757;
+    color:#ddd;
 }
 
 .bg-danger-2 {
@@ -80,7 +96,7 @@ header .logo {
     color: #dedede;
 }
 
-header .logo span:last-child{
+header .logo span:last-child {
     font-size: 14px;
     font-weight: 400;
     color: #6e6e6e;
@@ -95,7 +111,7 @@ header .logo span:last-child{
     color: #acacac;
 }
 
-.custom-navbar a.active{
+.custom-navbar a.active {
     color: #fff;
 }
 
@@ -129,6 +145,43 @@ header .custom-navbar a {
 .custom-pagination .page-item .page-link {
     border-radius: 0;
 }
+
+.custom-table thead td {
+    background-color: #232323;
+    color: #acacac;
+    border-bottom: none;
+    font-size: 14px;
+    padding: 12px 8px;
+}
+
+.custom-table tbody td {
+    background-color: #313131;
+    color: #acacac;
+    border-bottom-color: #3d3d3d;
+    font-size: 14px;
+}
+
+.custom-table td {
+    vertical-align: middle;
+}
+
+.custom-table-lg tbody td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+
+.pagination span.page-link,
+.pagination a.page-link{
+    border-radius: 0 !important;
+    background: #313131;
+    color: #acacac;
+    border: none;
+}
+.pagination .active span.page-link{
+    background: #232323 !important;
+}
+
 
 @media (max-width: 991px) {
     #main-nav {

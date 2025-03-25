@@ -14,6 +14,7 @@
                     <button type="button" class="nav-closer d-flex d-lg-none justify-content-end align-items-center">×</button>
                     <div>
                         <a href="{{ route("admin.dashboard") }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                        <a href="{{ route("admin.tags.index") }}" class="{{ request()->routeIs('admin.tags.index') ? 'active' : '' }}"><i class="bi bi-tags-fill"></i> Tags</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>

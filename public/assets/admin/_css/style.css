@@ -1,4 +1,5 @@
 @import "../../_css/style.css";
+@import "../../plugins/quill/quill.snow.css";
 
 footer{
     background-color: #232323;
@@ -6,5 +7,6 @@ footer{
 }
 
 .main-content{
+    padding: 1.5rem 0;
     min-height: calc(100vh - 108px - 1.5rem);
 }
