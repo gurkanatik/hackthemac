@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasTags;
+use App\Traits\HasMeta;
 
 class BlogPost extends Model
 {
+    use HasTags, HasMeta;
     protected $fillable = [
         'title',
         'slug',
@@ -19,22 +22,6 @@ class BlogPost extends Model
         'is_active' => 'boolean',
         'published_at' => 'datetime',
     ];
-
-    public function meta()
-    {
-        return $this->morphOne(\App\Models\MetaRelation::class, 'relation');
-    }
-
-    public function tagRelations()
-    {
-        return $this->morphMany(TagRelation::class, 'relation');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'tag_relations', 'relation_id', 'tag_id')
-            ->where('tag_relations.relation_type', self::class);
-    }
 
     protected static function booted()
     {

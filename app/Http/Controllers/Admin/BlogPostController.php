@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\BlogPostRequest;
 use App\Models\BlogPost;
 use App\Models\Tag;
 use App\Services\MetaService;
+use App\Services\TagService;
 use Illuminate\Support\Str;
 
 class BlogPostController extends Controller
@@ -35,11 +36,7 @@ class BlogPostController extends Controller
 
         MetaService::save($post, $validated);
 
-        if ($request->has('tags')) {
-            foreach ($request->tags as $tagId) {
-                $post->tagRelations()->create(['tag_id' => $tagId]);
-            }
-        }
+        TagService::sync($post, $validated['tags'] ?? []);
 
         return redirect()->route('admin.blog-posts.index')->with('success', 'Post created.');
     }
@@ -64,12 +61,7 @@ class BlogPostController extends Controller
 
         MetaService::save($blogPost, $validated);
 
-        $blogPost->tagRelations()->delete();
-        if ($request->has('tags')) {
-            foreach ($request->tags as $tagId) {
-                $blogPost->tagRelations()->create(['tag_id' => $tagId]);
-            }
-        }
+        TagService::sync($blogPost, $validated['tags'] ?? []);
 
         return redirect()->route('admin.blog-posts.index')->with('success', 'Post updated.');
     }

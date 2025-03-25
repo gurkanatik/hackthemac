@@ -66,15 +66,21 @@
                             {{ old('is_active', true) ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_active">Active</label>
                     </div>
-
+                    
                     <div class="mb-3 mt-3">
                         <label for="published_at" class="form-label">Publish Date</label>
-                        <input type="datetime-local" name="published_at" id="published_at"
-                               class="form-control @error('published_at') is-invalid @enderror"
-                               value="{{ old('published_at') }}">
+                        <input
+                            type="datetime-local"
+                            name="published_at"
+                            id="published_at"
+                            class="form-control @error('published_at') is-invalid @enderror"
+                            value="{{ old('published_at', now()->format('Y-m-d\TH:i')) }}"
+                        >
                         @error('published_at')
-                        <div class="invalid-feedback">{{ $message }}</div> @enderror
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
                 </div>
             </div>
 
