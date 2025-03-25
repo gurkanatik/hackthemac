@@ -17,6 +17,7 @@
             <tr>
                 <td>#</td>
                 <td>Title</td>
+                <td>Slug</td>
                 <td>Tags</td>
                 <td>Status</td>
                 <td>Published</td>
@@ -28,6 +29,7 @@
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
+                    <td><code>{{ $post->slug }}</code></td>
                     <td>
                         @foreach($post->tags->take(3) as $tag)
                             <span class="badge bg-secondary">{{ $tag->title }}</span>
