@@ -1,0 +1,10 @@
+@import "../../_css/style.css";
+
+footer{
+    background-color: #232323;
+    padding: 10px 0;
+}
+
+.main-content{
+    min-height: calc(100vh - 108px - 1.5rem);
+}
