@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BlogPostRequest;
 use App\Models\BlogPost;
 use App\Models\Tag;
+use App\Services\ImageService;
 use App\Services\MetaService;
 use App\Services\TagService;
 use Illuminate\Support\Str;
@@ -32,6 +33,13 @@ class BlogPostController extends Controller
             $validated['slug'] = Str::slug($validated['title']);
         }
 
+        if ($request->hasFile('cover_image')) {
+            $validated['cover_image'] = ImageService::upload(
+                $request->file('cover_image'),
+                'blog-posts'
+            );
+        }
+
         $post = BlogPost::create($validated);
 
         MetaService::save($post, $validated);
@@ -44,7 +52,6 @@ class BlogPostController extends Controller
     public function edit(BlogPost $blogPost)
     {
         $tags = Tag::all();
-        $blogPost->load('tags', 'meta');
 
         return view('admin.blog-posts.edit', compact('blogPost', 'tags'));
     }
@@ -55,6 +62,13 @@ class BlogPostController extends Controller
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
+        }
+
+        if ($request->hasFile('cover_image')) {
+            $validated['cover_image'] = ImageService::upload(
+                $request->file('cover_image'),
+                'blog-posts'
+            );
         }
 
         $blogPost->update($validated);

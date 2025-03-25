@@ -18,7 +18,7 @@ class Tag extends Model
         return $this->morphOne(MetaRelation::class, 'relation');
     }
 
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope('order', function ($query) {
             $query->orderByDesc('id');

@@ -5,13 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasTags;
 use App\Traits\HasMeta;
+use App\Traits\HasCoverImage;
 
+/**
+ * @property string|null $cover_image
+ */
 class BlogPost extends Model
 {
-    use HasTags, HasMeta;
+    use HasTags, HasMeta, HasCoverImage;
+
     protected $fillable = [
         'title',
         'slug',
+        'cover_image',
         'excerpt',
         'content',
         'is_active',
@@ -23,10 +29,10 @@ class BlogPost extends Model
         'published_at' => 'datetime',
     ];
 
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope('order', function ($query) {
-            $query->orderByDesc('published_at')->orderByDesc('id');
+            $query->orderByDesc('id');
         });
     }
 }

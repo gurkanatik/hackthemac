@@ -26,6 +26,7 @@ class BlogPostRequest extends FormRequest
             ],
             'excerpt' => 'nullable|string|max:500',
             'content' => 'nullable|string',
+            'cover_image' => 'nullable|image|max:2048',
             'is_active' => 'boolean',
             'published_at' => 'nullable|date',
 

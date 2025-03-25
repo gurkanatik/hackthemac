@@ -10,12 +10,19 @@
         ]"
     />
 
-    <form action="{{ route('admin.blog-posts.update', $blogPost) }}" method="POST">
+    <form action="{{ route('admin.blog-posts.update', $blogPost) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="custom-card">
+                    <div class="mb-3">
+                        <x-admin.image-input
+                            name="cover_image"
+                            label="Cover Image"
+                            :value="$blogPost ?? null"
+                        />
+                    </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" id="title"

@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('cover_image')->nullable();
             $table->text('excerpt')->nullable();
             $table->longText('content')->nullable();
             $table->boolean('is_active')->default(true);

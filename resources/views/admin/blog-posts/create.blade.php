@@ -9,11 +9,18 @@
         ]"
     />
 
-    <form action="{{ route('admin.blog-posts.store') }}" method="POST">
+    <form action="{{ route('admin.blog-posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="custom-card">
+                    <div class="mb-3">
+                        <x-admin.image-input
+                            name="cover_image"
+                            label="Cover Image"
+                            :value="$blogPost->cover_image ?? null"
+                        />
+                    </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" id="title"
@@ -66,7 +73,7 @@
                             {{ old('is_active', true) ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_active">Active</label>
                     </div>
-                    
+
                     <div class="mb-3 mt-3">
                         <label for="published_at" class="form-label">Publish Date</label>
                         <input
