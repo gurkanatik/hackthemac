@@ -55,6 +55,22 @@ h5 {
     color:#ddd;
 }
 
+.modal-body{
+    background: #3d3d3d;
+    color:#ddd;
+}
+
+.modal-header{
+    background: #232323;
+    color:#ddd;
+    border:none;
+    border-radius: 0;
+}
+
+.modal-content{
+    border: none;
+}
+
 .bg-danger-2 {
     background-color: #b22936;
 }
