@@ -66,7 +66,12 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 col-md-4">
+                <div class="custom-card">
+                    <x-admin.seo-inputs :meta="$tag->meta ?? null" />
+                </div>
+                <button type="submit" class="btn btn-sm btn-success mt-4 d-table ms-auto">Save</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-sm btn-success mt-4">Save</button>
     </form>
 @endsection

@@ -13,6 +13,11 @@ class Tag extends Model
         'description',
     ];
 
+    public function meta()
+    {
+        return $this->morphOne(MetaRelation::class, 'relation');
+    }
+
     protected static function booted()
     {
         static::addGlobalScope('order', function ($query) {

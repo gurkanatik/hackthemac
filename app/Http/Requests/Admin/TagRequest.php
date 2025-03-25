@@ -26,6 +26,9 @@ class TagRequest extends FormRequest
             ],
             'order_num' => 'nullable|integer',
             'description' => 'nullable',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:255',
+            'meta_keywords' => 'nullable|string|max:255',
         ];
     }
 }

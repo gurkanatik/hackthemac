@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TagRequest;
 use Illuminate\Support\Str;
 use App\Models\Tag;
+use App\Services\MetaService;
 
 
 class TagController extends Controller
@@ -30,7 +31,13 @@ class TagController extends Controller
             $validated['slug'] = Str::slug($validated['title']);
         }
 
-        Tag::create($validated);
+        $tag = Tag::create($validated);
+
+        MetaService::save($tag, $request->only([
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]));
 
         return redirect()
             ->route('admin.tags.index')
@@ -51,6 +58,12 @@ class TagController extends Controller
         }
 
         $tag->update($validated);
+
+        MetaService::save($tag, $request->only([
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]));
 
         return redirect()
             ->route('admin.tags.index')
