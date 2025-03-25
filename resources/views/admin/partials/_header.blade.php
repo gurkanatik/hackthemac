@@ -15,6 +15,7 @@
                     <div>
                         <a href="{{ route("admin.dashboard") }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="{{ route("admin.tags.index") }}" class="{{ request()->routeIs('admin.tags.index') ? 'active' : '' }}"><i class="bi bi-tags-fill"></i> Tags</a>
+                        <a href="{{ route("admin.pages.index") }}" class="{{ request()->routeIs('admin.pages.index') ? 'active' : '' }}"><i class="bi bi-card-text"></i> Pages</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>
