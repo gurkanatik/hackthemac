@@ -12,7 +12,8 @@ class ImageService
         UploadedFile $file,
         string       $directory = 'uploads',
         bool         $convertToWebp = true,
-        bool         $withThumbnail = true
+        bool         $withThumbnail = true,
+        array        $srcsetWidths = [400, 800, 1200]
     ): string
     {
         $extension = $file->getClientOriginalExtension();
@@ -26,8 +27,8 @@ class ImageService
 
         if ($convertToWebp && in_array(strtolower($extension), ['jpg', 'jpeg', 'png'])) {
             $webpPath = "$fullPath.webp";
-            $image = Image::make($file)->encode('webp', 85);
-            $image->save($webpPath);
+
+            Image::make($file)->encode('webp', 85)->save($webpPath);
 
             if ($withThumbnail) {
                 $thumbPath = "$basePath/thumbs";
@@ -37,12 +38,24 @@ class ImageService
 
                 $thumbFull = "$thumbPath/$filename.webp";
                 Image::make($file)
-                    ->resize(400, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
+                    ->resize(400, null, function ($c) {
+                        $c->aspectRatio();
+                        $c->upsize();
                     })
                     ->encode('webp', 85)
                     ->save($thumbFull);
+            }
+
+            foreach ($srcsetWidths as $width) {
+                $variantPath = "$basePath/{$filename}-{$width}.webp";
+
+                Image::make($file)
+                    ->resize($width, null, function ($c) {
+                        $c->aspectRatio();
+                        $c->upsize();
+                    })
+                    ->encode('webp', 85)
+                    ->save($variantPath);
             }
 
             return "$directory/$filename.webp";
@@ -52,6 +65,4 @@ class ImageService
 
         return "$directory/$filename.$extension";
     }
-
-
 }

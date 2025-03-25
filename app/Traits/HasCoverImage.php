@@ -40,4 +40,18 @@ trait HasCoverImage
 
         return 'uploads/' . $dir . '/thumbs/' . $filename;
     }
+
+    public function getSrcSet(array $widths = [400, 800, 1200], string $base = 'uploads'): ?string
+    {
+        if (!$this->hasCoverImage()) {
+            return null;
+        }
+
+        $pathInfo = pathinfo($this->cover_image);
+
+        return collect($widths)
+            ->map(fn($w) => asset("{$base}/{$pathInfo['dirname']}/{$pathInfo['filename']}-{$w}.webp {$w}w"))
+            ->implode(', ');
+    }
+
 }
