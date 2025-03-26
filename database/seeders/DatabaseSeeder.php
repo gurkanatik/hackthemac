@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             PageSeeder::class,
             PublisherSeeder::class,
+            PlatformSeeder::class,
         ]);
     }
 

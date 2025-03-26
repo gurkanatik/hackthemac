@@ -1,5 +1,5 @@
 <header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-between">
             <div class="left-section">
                 <a href="{{ route("admin.dashboard") }}" class="text-decoration-none d-flex align-items-center logo">
@@ -20,6 +20,7 @@
                         <a href="{{ route("admin.news.index") }}" class="{{ request()->routeIs('admin.news.index') ? 'active' : '' }}"><i class="bi bi-newspaper"></i> News</a>
                         <a href="{{ route("admin.publishers.index") }}" class="{{ request()->routeIs('admin.publishers.index') ? 'active' : '' }}"><i class="bi bi-buildings"></i> Publishers</a>
                         <a href="{{ route("admin.game-genres.index") }}" class="{{ request()->routeIs('admin.game-genres.index') ? 'active' : '' }}"><i class="bi bi-puzzle"></i> Genres</a>
+                        <a href="{{ route("admin.platforms.index") }}" class="{{ request()->routeIs('admin.platforms.index') ? 'active' : '' }}"><i class="bi bi-laptop"></i> Platforms</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>

@@ -10,3 +10,7 @@ footer{
     padding: 1.5rem 0;
     min-height: calc(100vh - 108px - 1.5rem);
 }
+
+.custom-navbar a{
+    margin: 0 8px;
+}
