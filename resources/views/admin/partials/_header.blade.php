@@ -9,9 +9,9 @@
                 </a>
             </div>
             <div class="right-section custom-navbar d-flex align-items-center justify-content-end">
-                <button type="button" class="nav-opener d-flex d-lg-none justify-content-end align-items-center">≡</button>
+                <button type="button" class="nav-opener d-flex d-xl-none justify-content-end align-items-center">≡</button>
                 <div id="main-nav">
-                    <button type="button" class="nav-closer d-flex d-lg-none justify-content-end align-items-center">×</button>
+                    <button type="button" class="nav-closer d-flex d-xl-none justify-content-end align-items-center">×</button>
                     <div>
                         <a href="{{ route("admin.dashboard") }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="{{ route("admin.tags.index") }}" class="{{ request()->routeIs('admin.tags.index') ? 'active' : '' }}"><i class="bi bi-tags-fill"></i> Tags</a>
