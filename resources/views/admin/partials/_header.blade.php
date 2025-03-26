@@ -16,7 +16,8 @@
                         <a href="{{ route("admin.dashboard") }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a>
                         <a href="{{ route("admin.tags.index") }}" class="{{ request()->routeIs('admin.tags.index') ? 'active' : '' }}"><i class="bi bi-tags-fill"></i> Tags</a>
                         <a href="{{ route("admin.pages.index") }}" class="{{ request()->routeIs('admin.pages.index') ? 'active' : '' }}"><i class="bi bi-card-text"></i> Pages</a>
-                        <a href="{{ route("admin.blog-posts.index") }}" class="{{ request()->routeIs('admin.blog-posts.index') ? 'active' : '' }}"><i class="bi bi-card-text"></i> BLog Posts</a>
+                        <a href="{{ route("admin.blog-posts.index") }}" class="{{ request()->routeIs('admin.blog-posts.index') ? 'active' : '' }}"><i class="bi bi-card-text"></i> Blog Posts</a>
+                        <a href="{{ route("admin.news.index") }}" class="{{ request()->routeIs('admin.news.index') ? 'active' : '' }}"><i class="bi bi-card-text"></i> News</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>
