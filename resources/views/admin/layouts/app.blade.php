@@ -17,7 +17,7 @@
 
 @include('admin.partials._header')
 <div class="main-content">
-    <div class="container">
+    <div class="@yield('containerClass', 'container')">
         @yield('content')
     </div>
 </div>

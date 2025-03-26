@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\GameGenreController;
 use App\Http\Controllers\Admin\PlatformController;
+use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\QuillController;
 
 Route::prefix('admin')
@@ -23,6 +24,7 @@ Route::prefix('admin')
         Route::resource('publishers', PublisherController::class);
         Route::resource('game-genres', GameGenreController::class);
         Route::resource('platforms', PlatformController::class);
+        Route::resource('games', GameController::class);
 
         Route::post('quill/upload', [QuillController::class, 'upload'])
             ->name('quill.upload');

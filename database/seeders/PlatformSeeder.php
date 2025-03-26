@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Platform;
+use App\Models\GamePlatform;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -39,7 +39,7 @@ class PlatformSeeder extends Seeder
         ];
 
         foreach ($platforms as $title) {
-            Platform::updateOrCreate(
+            GamePlatform::updateOrCreate(
                 ['slug' => Str::slug($title)],
                 ['title' => $title]
             );
