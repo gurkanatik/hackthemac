@@ -2,21 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\HasMeta;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    use HasMeta;
     protected $fillable = [
         'title',
         'slug',
         'order_num',
         'description',
     ];
-
-    public function meta()
-    {
-        return $this->morphOne(MetaRelation::class, 'relation');
-    }
 
     protected static function booted(): void
     {
