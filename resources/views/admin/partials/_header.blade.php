@@ -19,6 +19,7 @@
                         <a href="{{ route("admin.blog-posts.index") }}" class="{{ request()->routeIs('admin.blog-posts.index') ? 'active' : '' }}"><i class="bi bi-substack"></i> Blog Posts</a>
                         <a href="{{ route("admin.news.index") }}" class="{{ request()->routeIs('admin.news.index') ? 'active' : '' }}"><i class="bi bi-newspaper"></i> News</a>
                         <a href="{{ route("admin.publishers.index") }}" class="{{ request()->routeIs('admin.publishers.index') ? 'active' : '' }}"><i class="bi bi-buildings"></i> Publishers</a>
+                        <a href="{{ route("admin.game-genres.index") }}" class="{{ request()->routeIs('admin.game-genres.index') ? 'active' : '' }}"><i class="bi bi-puzzle"></i> Genres</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>

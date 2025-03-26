@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PublisherController;
+use App\Http\Controllers\Admin\GameGenreController;
+use App\Http\Controllers\Admin\QuillController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -18,7 +20,8 @@ Route::prefix('admin')
         Route::resource('blog-posts', BlogPostController::class);
         Route::resource('news', NewsController::class);
         Route::resource('publishers', PublisherController::class);
+        Route::resource('game-genres', GameGenreController::class);
 
-        Route::post('quill/upload', [App\Http\Controllers\Admin\QuillController::class, 'upload'])
+        Route::post('quill/upload', [QuillController::class, 'upload'])
             ->name('quill.upload');
     });
