@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\PublisherController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -16,6 +17,7 @@ Route::prefix('admin')
         Route::resource('pages', PageController::class);
         Route::resource('blog-posts', BlogPostController::class);
         Route::resource('news', NewsController::class);
+        Route::resource('publishers', PublisherController::class);
 
         Route::post('quill/upload', [App\Http\Controllers\Admin\QuillController::class, 'upload'])
             ->name('quill.upload');
