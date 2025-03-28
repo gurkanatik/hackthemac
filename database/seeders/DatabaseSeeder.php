@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             GameGenreSeeder::class,
             GameSeeder::class,
             AppSeeder::class,
+            NewsSeeder::class,
+            BlogPostSeeder::class,
         ]);
     }
 

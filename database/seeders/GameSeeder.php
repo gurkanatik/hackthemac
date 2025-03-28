@@ -8,6 +8,8 @@ use App\Models\Platform;
 use App\Models\GameGenre;
 use App\Models\GameGenreRelation;
 use App\Models\PlatformRelation;
+use App\Models\Tag;
+use App\Models\TagRelation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -18,6 +20,7 @@ class GameSeeder extends Seeder
         $publishers = Publisher::pluck('id')->toArray();
         $genres = GameGenre::pluck('id')->toArray();
         $platforms = Platform::pluck('id')->toArray();
+        $tags = Tag::pluck('id')->toArray();
 
         $games = [
             'Elden Ring', 'God of War', 'The Witcher 3', 'Cyberpunk 2077', 'Hades',
@@ -43,6 +46,15 @@ class GameSeeder extends Seeder
                 'published_at' => now()->subDays(fake()->numberBetween(0, 300)),
                 'release_date' => now()->subDays(fake()->numberBetween(0, 600))->toDateString(),
             ]);
+
+            // Tags
+            foreach (fake()->randomElements($tags, rand(1, 3)) as $tagId) {
+                TagRelation::create([
+                    'tag_id' => $tagId,
+                    'relation_id' => $game->id,
+                    'relation_type' => Game::class,
+                ]);
+            }
 
             // Genres
             foreach (fake()->randomElements($genres, rand(1, 3)) as $genreId) {
