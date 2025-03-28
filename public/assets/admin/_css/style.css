@@ -1,16 +1,27 @@
 @import "../../_css/style.css";
 @import "../../plugins/quill/quill.snow.css";
 
-footer{
+footer {
     background-color: #232323;
     padding: 10px 0;
 }
 
-.main-content{
+.main-content {
     padding: 1.5rem 0;
     min-height: calc(100vh - 108px - 1.5rem);
 }
 
-.custom-navbar a{
+.custom-navbar a {
     margin: 0 8px;
+}
+
+.stat-card {
+    background-color: #232323;
+    color: #acacac !important;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
