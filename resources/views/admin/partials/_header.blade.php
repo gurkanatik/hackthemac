@@ -22,6 +22,7 @@
                         <a href="{{ route("admin.game-genres.index") }}" class="{{ request()->routeIs('admin.game-genres.index') ? 'active' : '' }}"><i class="bi bi-puzzle"></i> Genres</a>
                         <a href="{{ route("admin.platforms.index") }}" class="{{ request()->routeIs('admin.platforms.index') ? 'active' : '' }}"><i class="bi bi-laptop"></i> Platforms</a>
                         <a href="{{ route("admin.games.index") }}" class="{{ request()->routeIs('admin.games.index') ? 'active' : '' }}"><i class="bi bi-controller"></i> Games</a>
+                        <a href="{{ route("admin.apps.index") }}" class="{{ request()->routeIs('admin.apps.index') ? 'active' : '' }}"><i class="bi bi-app-indicator"></i> Apps</a>
                         <a href="{{ route("admin.dashboard") }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </div>
                 </div>

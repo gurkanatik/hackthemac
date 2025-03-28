@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PlatformSeeder::class,
             GameGenreSeeder::class,
             GameSeeder::class,
+            AppSeeder::class,
         ]);
     }
 
