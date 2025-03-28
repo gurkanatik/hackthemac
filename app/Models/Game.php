@@ -4,6 +4,7 @@ namespace App\Models;
 
 namespace App\Models;
 
+use App\Traits\HasPlatforms;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -14,7 +15,7 @@ use App\Traits\HasCoverImage;
 
 class Game extends Model
 {
-    use HasTags, HasMeta, HasCoverImage;
+    use HasTags, HasMeta, HasCoverImage, HasPlatforms;
 
     protected $fillable = [
         'publisher_id',
@@ -60,17 +61,6 @@ class Game extends Model
     {
         return $this->belongsToMany(GameGenre::class, 'game_genre_relations', 'relation_id', 'game_genre_id')
             ->where('game_genre_relations.relation_type', static::class);
-    }
-
-    public function platformRelations(): MorphMany
-    {
-        return $this->morphMany(GamePlatformRelation::class, 'relation');
-    }
-
-    public function platforms(): BelongsToMany
-    {
-        return $this->belongsToMany(GamePlatform::class, 'game_platform_relations', 'relation_id', 'platform_id')
-            ->where('game_platform_relations.relation_type', static::class);
     }
 
 }

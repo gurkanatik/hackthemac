@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PlatformRequest;
-use App\Models\GamePlatform;
+use App\Models\Platform;
 use App\Services\MetaService;
 use Illuminate\Support\Str;
 
@@ -12,7 +12,7 @@ class PlatformController extends Controller
 {
     public function index()
     {
-        $platforms = GamePlatform::paginate(20);
+        $platforms = Platform::paginate(20);
         return view('admin.platforms.index', compact('platforms'));
     }
 
@@ -29,7 +29,7 @@ class PlatformController extends Controller
             $validated['slug'] = Str::slug($validated['title']);
         }
 
-        $platform = GamePlatform::create($validated);
+        $platform = Platform::create($validated);
 
         MetaService::save($platform, $request->only([
             'meta_title',
@@ -40,12 +40,12 @@ class PlatformController extends Controller
         return redirect()->route('admin.platforms.index')->with('success', 'Platform created successfully.');
     }
 
-    public function edit(GamePlatform $platform)
+    public function edit(Platform $platform)
     {
         return view('admin.platforms.edit', compact('platform'));
     }
 
-    public function update(PlatformRequest $request, GamePlatform $platform)
+    public function update(PlatformRequest $request, Platform $platform)
     {
         $validated = $request->validated();
 
@@ -64,7 +64,7 @@ class PlatformController extends Controller
         return redirect()->route('admin.platforms.index')->with('success', 'Platform updated successfully.');
     }
 
-    public function destroy(GamePlatform $platform)
+    public function destroy(Platform $platform)
     {
         $platform->delete();
 

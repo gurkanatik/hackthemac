@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('game_platform_relations', function (Blueprint $table) {
+        Schema::create('platform_relations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('platform_id')->constrained()->cascadeOnDelete();
             $table->morphs('relation');
@@ -19,6 +19,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('game_platform_relations');
+        Schema::dropIfExists('platform_relations');
     }
 };

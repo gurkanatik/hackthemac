@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasMeta;
 
-class GamePlatform extends Model
+class Platform extends Model
 {
     use HasMeta;
 

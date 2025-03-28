@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GamePlatformRelation extends Model
+class PlatformRelation extends Model
 {
     protected $fillable = [
         'platform_id',
@@ -14,7 +14,7 @@ class GamePlatformRelation extends Model
 
     public function platform()
     {
-        return $this->belongsTo(GamePlatform::class);
+        return $this->belongsTo(Platform::class);
     }
 
     public function relation()

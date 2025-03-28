@@ -8,12 +8,12 @@ use App\Models\Game;
 use App\Models\Tag;
 use App\Models\Publisher;
 use App\Models\GameGenre;
-use App\Models\GamePlatform;
+use App\Models\Platform;
 use App\Services\ImageService;
 use App\Services\MetaService;
 use App\Services\TagService;
 use App\Services\GameGenreService;
-use App\Services\GamePlatformService;
+use App\Services\PlatformService;
 use Illuminate\Support\Str;
 
 class GameController extends Controller
@@ -30,7 +30,7 @@ class GameController extends Controller
             'tags' => Tag::all(),
             'publishers' => Publisher::all(),
             'genres' => GameGenre::all(),
-            'platforms' => GamePlatform::all(),
+            'platforms' => Platform::all(),
         ]);
     }
 
@@ -51,7 +51,7 @@ class GameController extends Controller
         MetaService::save($game, $validated);
         TagService::sync($game, $validated['tags'] ?? []);
         GameGenreService::sync($game, $validated['genres'] ?? []);
-        GamePlatformService::sync($game, $validated['platforms'] ?? []);
+        PlatformService::sync($game, $validated['platforms'] ?? []);
 
         return redirect()->route('admin.games.index')->with('success', 'Game created successfully.');
     }
@@ -63,7 +63,7 @@ class GameController extends Controller
             'tags' => Tag::all(),
             'publishers' => Publisher::all(),
             'genres' => GameGenre::all(),
-            'platforms' => GamePlatform::all(),
+            'platforms' => Platform::all(),
         ]);
     }
 
@@ -84,7 +84,7 @@ class GameController extends Controller
         MetaService::save($game, $validated);
         TagService::sync($game, $validated['tags'] ?? []);
         GameGenreService::sync($game, $validated['genres'] ?? []);
-        GamePlatformService::sync($game, $validated['platforms'] ?? []);
+        PlatformService::sync($game, $validated['platforms'] ?? []);
 
         return redirect()->route('admin.games.index')->with('success', 'Game updated successfully.');
     }

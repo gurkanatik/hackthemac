@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Game;
 use App\Models\Publisher;
-use App\Models\GamePlatform;
+use App\Models\Platform;
 use App\Models\GameGenre;
 use App\Models\GameGenreRelation;
-use App\Models\GamePlatformRelation;
+use App\Models\PlatformRelation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -17,7 +17,7 @@ class GameSeeder extends Seeder
     {
         $publishers = Publisher::pluck('id')->toArray();
         $genres = GameGenre::pluck('id')->toArray();
-        $platforms = GamePlatform::pluck('id')->toArray();
+        $platforms = Platform::pluck('id')->toArray();
 
         $games = [
             'Elden Ring', 'God of War', 'The Witcher 3', 'Cyberpunk 2077', 'Hades',
@@ -55,7 +55,7 @@ class GameSeeder extends Seeder
 
             // Platforms
             foreach (fake()->randomElements($platforms, rand(1, 3)) as $platformId) {
-                GamePlatformRelation::create([
+                PlatformRelation::create([
                     'platform_id' => $platformId,
                     'relation_id' => $game->id,
                     'relation_type' => Game::class,
